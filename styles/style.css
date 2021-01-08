@@ -20,20 +20,36 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
     margin: 0;
     padding: 0;
     }
+/* wrapper for body */
     .wrapper{
         width: 90%;
         max-width: 1280px;
         margin: 0 auto;
     }
 
-    
+/* header and main styles     */
+
+    body{
+        font-family: 'Comic Neue', cursive;
+        font-weight:700;
+    }
+
+    .headerTitle{
+        padding-top:50px;
+        text-align: center;
+    }
+
+    .headerTitle h1{
+        font-size:2.5rem;
+    }
     .grid{ 
         display:grid;
         grid-template-columns: repeat( 3, auto );
-        width:250px;
-        height:250px;
+        width:200px;
+        height:200px;
         margin: 0 auto;
-        padding-top:100px;
+        padding-top:150px;
+        justify-content: center;
     }
 
 
@@ -68,7 +84,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
     }
 
-    .win{
+    .messageContainer{
         display:none;
         position:fixed;
         top:0;
@@ -78,13 +94,63 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
         background-color: green; 
         justify-content: center;  
         align-items: center;
-        opacity: 0.8;
+        flex-direction: column;
     }
 
-    .win button{
+    .message{
+        font-size:2rem;
+    }
+
+    
+    .resetBtn{
+        border: 3px solid black;
+        border-radius: 10px;
+        background-color: white;
+        cursor: pointer;
+        font-size:1.5rem;
+    }
+
+    .resetBtn:hover{
+        background-color:black;
+        color:white;
+    }
+
+    .message,
+    .resetBtn{
+        font-weight:400;
+        margin: 10px;
+    }
+
+
+    .socials{
+        margin-top:20px;
+        font-size:2.5rem;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    i:hover{
+        background-color: white;
+        border:5px solid white;
+        border-radius:10px;
+    }
+
+    
+    .messageContainer button{
         height:50px;
     }
 
-    .win.active{
+    .messageContainer.active{
         display:flex;
+    }
+
+    /* media queries  */
+    
+    @media(max-width:360px){
+
+        .grid{
+            width:100px;
+            height:100px;
+        }
+
     }

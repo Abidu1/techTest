@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicTacToe</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2b766fdeb7.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="wrapper">
-            <div class="title">
+            <div class="headerTitle">
                 <h1>Tic Tac Toe</h1>
             </div>
         </div>
@@ -29,18 +31,13 @@
                 <div class="cell" data-id="8"></div>
             </div>
         </div>
-        <div>
-            <div class="randomBox">
-                <div class="number"></div>
-                <button class="randomBtn">random</button>
-            </div>
-        </div>
-        <div class="win">
-            <div class="winMessage"></div>
+        <div class="messageContainer">
+            <div class="message"></div>
             <button class="resetBtn">Play Again?</button>
-            <a class="tweet" onClick="tweetCurrentPage()" target="_blank" alt="Tweet this page">Tweet this page</a>
-            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&width=96&height=20&appId" width="96" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-
+            <div class ="socials">
+                <a class="tweet" target="_blank" alt="Tweet this page"><i class="fab fa-twitter"></i></a>
+                <a class="facebook" target="_blank" alt="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
         </div>
     </main>
     <script src="script.js"></script>
