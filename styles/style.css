@@ -164,10 +164,11 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
     }
 
     .errorBoxBtn{
-        padding:10px 20px 20px 10px;
+        padding:5px 15px 5px 15px;
         background-color:white;
         color:black;
         border:2px solid white;
+        cursor: pointer;
     }
 
     .errorBoxBtn:hover{
@@ -177,6 +178,13 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
     }
 
 
+    .tweet.active{
+        display:none;
+    }
+
+    .facebook.active{
+        display:none;
+    }
 
 
     /* media queries  */

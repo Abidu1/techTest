@@ -77,18 +77,33 @@ ticTacToeGame.init = function() {
         // if there is a draw a message will show up with draw  
         if(draw){
             message.innerHTML = "Draw!"
+            tweetLink.removeEventListener('click', tweetCurrentPage)
+            facebookLink.removeEventListener('click', fbshareCurrentPage)
+            // adding the active class to not display the twitter and facebook button when there is a draw
+            tweetLink.classList.add('active')
+            facebookLink.classList.add('active')
+
         // if condition is false this means current player won
         } else {
             message.innerHTML = `${turn ? "Yellow" : "Blue" } Wins!`
+            // removing the display-none property called 'active' on both the twitter and facebook button so that player can post when they win
+            tweetLink.classList.remove('active')
+            facebookLink.classList.remove('active')
+            tweetLink.addEventListener('click', tweetCurrentPage)
+            facebookLink.addEventListener('click', fbshareCurrentPage)
+
         }
         // winbox appears when players either win or finish the game
         messageContainer.classList.add('active')
     }
 
+    // adding class active so that errorBox pops up
     function errorMessage(){
         return errorBoxContainer.classList.add('active')
     
     }
+
+    // toggling error message which can be removed when user clicks on error box button
     function removeErrorMessage(){
         return errorBoxContainer.classList.toggle('active')
     }
