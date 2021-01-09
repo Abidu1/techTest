@@ -10,6 +10,8 @@
     const playAgainbtn = document.querySelector('.resetBtn')
     const tweetLink = document.querySelector('.tweet')
     const facebookLink = document.querySelector('.facebook')
+    const errorBoxContainer = document.querySelector('.errorBoxContainer')
+    const errorBoxBtn = document.querySelector('.errorBoxBtn')
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let turn
 
@@ -23,6 +25,7 @@ ticTacToeGame.init = function() {
     playAgainbtn.addEventListener('click', startTurn)
     tweetLink.addEventListener('click', tweetCurrentPage)
     facebookLink.addEventListener('click', fbshareCurrentPage)
+    errorBoxBtn.addEventListener('click', removeErrorMessage)
 
 
     function startTurn(){
@@ -40,11 +43,11 @@ ticTacToeGame.init = function() {
             });
         hoverBoard()
         //removing the winmessage from the before
-        messageContainer.classList.remove('active')
+        messageContainer.classList.toggle('active')
         }
 
 
-        
+
 
     function playerClick(e){
         const cellTarget = e.target;
@@ -52,9 +55,10 @@ ticTacToeGame.init = function() {
         const playerTurn = turn ? yellow : blue
         // getting the id of each cell so if a player clicks on a cell that has been clicked before then they would get an alert 
         const indexTarget = parseInt(cellTarget.getAttribute('data-id'));
-        // if cell has been filled and user clicks then there would be an error 
+        // if cell has been filled and user clicks then there would be an error since in the gameState the cell has already been used
         if(gameState[indexTarget] !== ""){
-            return alert("Error. Spot has been filled.");
+            // shows errormessage when user clicks twice on the same spot 
+            return errorMessage();
         }
         gameState[indexTarget] = turn
         cellTarget.classList.add(playerTurn)
@@ -81,6 +85,13 @@ ticTacToeGame.init = function() {
         messageContainer.classList.add('active')
     }
 
+    function errorMessage(){
+        return errorBoxContainer.classList.add('active')
+    
+    }
+    function removeErrorMessage(){
+        return errorBoxContainer.classList.toggle('active')
+    }
 
 
     function playersTie (){
@@ -89,6 +100,7 @@ ticTacToeGame.init = function() {
             return cell.classList.contains(yellow) || cell.classList.contains(blue)
         })
     }
+
 
 
 
@@ -122,14 +134,14 @@ ticTacToeGame.init = function() {
     }
 
 } 
-
+//social media shares 
 function tweetCurrentPage(){ 
-    window.open("https://twitter.com/share?url="+ encodeURIComponent(window.location.href)+"&text="+document.title, '', 
+    window.open("https://twitter.com/share?url="+ encodeURIComponent(window.location.href)+"&text="+"Just won a game of TicTacToe!", '',
     'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; 
 }
 
 function fbshareCurrentPage()
-{window.location.href="https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(window.location.href)+"&t="+document.title }
+{window.location.href="https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(window.location.href)+"&t="+"Just won a game of TicTacToe!" }
 
 
 
